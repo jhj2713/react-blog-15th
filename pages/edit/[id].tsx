@@ -22,29 +22,35 @@ const Edit = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
   posts = posts ? storePosts : posts;
 
   const handleSubmit = (): void => {
-    const idx = posts.findIndex((post: IPost) => post.id === router.query.id);
-    const cur = new Date();
-    const date = `${String(cur.getMonth() + 1).padStart(2, "0")}-${String(
-      cur.getDate()
-    ).padStart(2, "0")} ${String(cur.getHours()).padStart(2, "0")}:${String(
-      cur.getMinutes()
-    ).padStart(2, "0")}`;
-    const postObj = {
-      id: String(router.query.id),
-      title,
-      content,
-      date,
-    };
-
-    if (idx === -1) {
-      // 새로운 post 작성
-      dispatch(addPost(postObj));
+    if (!title.trim()) {
+      alert("제목을 입력해주세요");
+    } else if (!content.trim()) {
+      alert("내용을 입력해주세요");
     } else {
-      // post update
-      dispatch(updatePost(postObj));
-    }
+      const idx = posts.findIndex((post: IPost) => post.id === router.query.id);
+      const cur = new Date();
+      const date = `${String(cur.getMonth() + 1).padStart(2, "0")}-${String(
+        cur.getDate()
+      ).padStart(2, "0")} ${String(cur.getHours()).padStart(2, "0")}:${String(
+        cur.getMinutes()
+      ).padStart(2, "0")}`;
+      const postObj = {
+        id: String(router.query.id),
+        title,
+        content,
+        date,
+      };
 
-    router.push(`/detail/${router.query.id}`);
+      if (idx === -1) {
+        // 새로운 post 작성
+        dispatch(addPost(postObj));
+      } else {
+        // post update
+        dispatch(updatePost(postObj));
+      }
+
+      router.push(`/detail/${router.query.id}`);
+    }
   };
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
