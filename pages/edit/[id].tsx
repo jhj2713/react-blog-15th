@@ -137,6 +137,24 @@ const ContentInput = styled.textarea`
 
   font-size: 1rem;
   line-height: 2rem;
+
+  &::-webkit-scrollbar {
+    width: 0.6rem;
+  }
+
+  & ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.08);
+    visibility: hidden;
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
+    border-radius: 1rem;
+  }
 `;
 const Buttons = styled.section`
   width: 100%;
