@@ -1,0 +1,36 @@
+{
+  "name": "react-blog-15th-team-ceos",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "NODE_OPTIONS='--inspect' next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@redux-devtools/extension": "^3.2.2",
+    "@types/redux-logger": "^3.0.9",
+    "next": "12.1.6",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "styled-components": "^5.3.5",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@reduxjs/toolkit": "^1.8.1",
+    "@types/node": "17.0.33",
+    "@types/react": "18.0.9",
+    "@types/react-dom": "18.0.4",
+    "@types/styled-components": "^5.1.25",
+    "@types/uuid": "^8.3.4",
+    "babel-plugin-styled-components": "^2.0.7",
+    "eslint": "8.15.0",
+    "eslint-config-next": "12.1.6",
+    "i": "^0.3.7",
+    "next-redux-wrapper": "^7.0.5",
+    "npm": "^8.10.0",
+    "react-redux": "^8.0.1",
+    "typescript": "4.6.4"
+  }
+}
